@@ -1,0 +1,158 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+width: 100%;
+background: white; /* Cor de fundo do header */
+color: black;
+padding: 40px;
+text-align: center;
+position: fixed; /* Fixa o header no topo */
+top: 0;
+left: 0;
+border-bottom: 1px solid black; /* Linha inferior */
+box-sizing: border-box; /* Evita que padding afete a borda */
+}
+
+/* Estilização do menu fullscreen */
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicialmente fora da tela */
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease-in-out;
+}
+
+.menu a {
+    color: Black;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 20px;
+    display: flex; /* Faz o item ocupar 100% da largura */
+    justify-content: center; /* Centraliza o texto */
+    align-items: center;
+    width: 90vw; /* Faz o item ocupar toda a largura da tela */
+    border-top: 1px solid Black; /* Linha superior */
+    transition: background 0.3s;
+}
+
+
+.menu a:hover {
+    color: #414141;
+}
+
+/* Classe para ativar o menu */
+.menu.open {
+    right: 0;
+}
+
+/* Ícone do menu */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    height: 5px;
+    background: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Animação do ícone de hambúrguer para "X" */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero {
+    max-width: 800px;
+  text-align: left;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 100;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    animation: fadeIn 1.5s ease-in-out;
+  text-align: left;
+  color: black;
+}
+
+.hero .cta-btn {
+    display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px 40px; /* Aumenta o tamanho do botão */
+font-size: 1.5rem; /* Texto maior */
+font-weight: bold;
+color: white;
+background: #28a745; /* Verde */
+border: none;
+border-radius: 10px;
+text-decoration: none;
+transition: 0.3s;
+cursor: pointer;
+width: fit-content; /* Mantém o botão no tamanho do texto */
+  height: 50px;
+  
+}
+
+.hero .cta-btn:hover {
+    background: #218838; /* Verde mais escuro */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero .cta-btn {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
